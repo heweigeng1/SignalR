@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>学习SignalR</h1>
+</div>
+<div>
+    <label>用户名:</label><input id="name" type="text" /><label>内容</label><input type="text" id="msg" /><button id="send">发送</button>
+</div>
+<div id="msgList"></div>
+@section scripts{
+    <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>
+        $(function () {
+            // 引用自动生成的集线器代理
+            var chat = $.connection.perfHub;
+            // 定义服务器端调用的客户端sendMessage来显示新消息
+            chat.client.sendMessage = function (name, msg) {
+                // 向页面添加消息
+                $('#msgList').append('<p><strong>' + htmlEncode(name)
+                    + '</strong>: ' + htmlEncode(msg) + '</p>');
+            };
+            // 设置焦点到输入框
+            $('#msg').focus();
+            // 开始连接服务器
+            $.connection.hub.start().done(function () {
+                $('#send').click(function () {
+                    // 调用服务器端集线器的Send方法
+                    var name = $('#name').val();
+                    var msg = $('#msg').val();
+                    chat.server.send(name, msg);
+                    // 清空输入框信息并获取焦点
+                    $('#msg').val('').focus();
+                });
+            });
+        });
+
+        // 为显示的消息进行Html编码
+        function htmlEncode(value) {
+            var encodedValue = $('<div />').text(value).html();
+            return encodedValue;
+        }
+    </script>
+}
