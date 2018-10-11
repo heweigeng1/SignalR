@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tom.SignalR", "Tom.SignalR\Tom.SignalR.csproj", "{62C8CA0D-D8AC-4AF4-9F23-6865EDFA1E0E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tom.UI", "Tom.UI\Tom.UI.csproj", "{8F0FFF07-006B-4950-B021-407047C4F625}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tom.Client", "Tom.Client\Tom.Client.csproj", "{A22059F2-B2C9-4BF2-80C3-405363F8B813}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tom.ConsoleServer", "Tom.ConsoleServer\Tom.ConsoleServer.csproj", "{1ECD9446-2FCC-4E19-AF06-7B3E242D80BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tom.WebSocketConsole.Client", "Tom.WebSocketConsole.Client\Tom.WebSocketConsole.Client.csproj", "{D97FCE9E-2DE7-4949-A662-22560EDDD7B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tom.SignalRConsole.Client", "Tom.SignalRConsole.Client\Tom.SignalRConsole.Client.csproj", "{12D8208E-104C-4F80-89A4-85EC05DF54C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{62C8CA0D-D8AC-4AF4-9F23-6865EDFA1E0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62C8CA0D-D8AC-4AF4-9F23-6865EDFA1E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62C8CA0D-D8AC-4AF4-9F23-6865EDFA1E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62C8CA0D-D8AC-4AF4-9F23-6865EDFA1E0E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8F0FFF07-006B-4950-B021-407047C4F625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8F0FFF07-006B-4950-B021-407047C4F625}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F0FFF07-006B-4950-B021-407047C4F625}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,8 +31,19 @@ Global
 		{1ECD9446-2FCC-4E19-AF06-7B3E242D80BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1ECD9446-2FCC-4E19-AF06-7B3E242D80BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1ECD9446-2FCC-4E19-AF06-7B3E242D80BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D97FCE9E-2DE7-4949-A662-22560EDDD7B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D97FCE9E-2DE7-4949-A662-22560EDDD7B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D97FCE9E-2DE7-4949-A662-22560EDDD7B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D97FCE9E-2DE7-4949-A662-22560EDDD7B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12D8208E-104C-4F80-89A4-85EC05DF54C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12D8208E-104C-4F80-89A4-85EC05DF54C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12D8208E-104C-4F80-89A4-85EC05DF54C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12D8208E-104C-4F80-89A4-85EC05DF54C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3851CE62-73DF-495C-B4EA-1B3818767624}
 	EndGlobalSection
 EndGlobal

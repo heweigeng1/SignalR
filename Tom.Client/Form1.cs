@@ -8,7 +8,8 @@ namespace Tom.Client
     public partial class Form1 : Form
     {
         public IHubProxy HubProxy { get; set; }
-        const string ServerUri = "http://localhost:8180";
+
+        private const string ServerUri = "http://localhost:21021/payingcallback";
         public HubConnection Connection { get; set; }
         public string user { get; set; } = Guid.NewGuid().ToString();
         public Form1()
@@ -17,23 +18,24 @@ namespace Tom.Client
             ConnectAsync();
             setLogToRtb(user);
         }
-        private  void ConnectAsync()
+        private async void ConnectAsync()
         {
-            Connection = new HubConnection(ServerUri);
+            Connection = new HubConnection("http://localhost:21021/payingcallback", useDefaultUrl: false);
             // 创建一个集线器代理对象
-            HubProxy = Connection.CreateHubProxy("MyHub");
+            HubProxy = Connection.CreateHubProxy("PayingCallBackHub");
 
             //供服务器调用
-            HubProxy.On<string, string>("addMessage", (name, message) => RTB_MSG.Invoke(new Action(()=>  setLogToRtb($"{name}: {message}")))
+            HubProxy.On<string, string>("addMessage", (name, message) => RTB_MSG.Invoke(new Action(() => setLogToRtb($"{name}: {message}")))
                 );
             //开启连接
             try
             {
-                 Connection.Start();
+                await Connection.Start();
             }
-            catch (HttpRequestException)
+            catch (HttpRequestException ex)
             {
                 setLogToRtb($"请检查服务是否开启：{ServerUri }!!");
+                Console.WriteLine($"error:{ex.Message}");
                 // 连接失败
                 return;
             }
